@@ -52,32 +52,44 @@ export default {
                         fieldId: 2,
                         properties: {
                             fields: [{
-                                fieldType: 'paragraph',
-                                fieldId: 1,
-                                properties: {
-                                    text: 'This is my first paragraph'
-                                }
-                            },
-                            {
-                                fieldType: 'square-image',
-                                fieldId: 3,
-                                properties: {
-                                    imageSource: '/assets/sample.jpg',
-                                    alternateText: 'My sample picture',
-                                    width: 200,
-                                    height: 200
+                                    fieldType: 'paragraph',
+                                    fieldId: 1,
+                                    properties: {
+                                        text: 'This is my first paragraph'
+                                    }
                                 },
-                            },
-                            {
-                                fieldType: 'paragraph',
-                                fieldId: 1,
-                                properties: {
-                                    text: 'This is my first paragraph'
+                                {
+                                    fieldType: 'square-image',
+                                    fieldId: 3,
+                                    properties: {
+                                        imageSource: '/assets/sample.jpg',
+                                        alternateText: 'My sample picture',
+                                        width: 200,
+                                        height: 200
+                                    },
+                                },
+                                {
+                                    fieldType: 'paragraph',
+                                    fieldId: 1,
+                                    properties: {
+                                        text: 'This is my first paragraph'
+                                    }
                                 }
-                            }]
+                            ]
                         }
                     }
                 ]
+            },
+            {
+                sectionId: 3,
+                fields: [{
+                    fieldType: 'card',
+                    fieldId: 1,
+                    properties: {
+                        title: 'This is my card',
+                        message: 'This is the message on the card',
+                    }
+                }]
             }
         ]
     }
