@@ -8,11 +8,11 @@ export default {
   props: {
     text: {
       type: String,
-      required: true
+      default: 'An error occured'
     },
     alertType: {
       type: String,
-      required: true
+      default: 'alert-danger'
     }
   }
 };

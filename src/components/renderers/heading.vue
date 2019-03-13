@@ -1,14 +1,14 @@
 <template>
-  <p>{{text}}</p>
+  <h1>{{text}}</h1>
 </template>
 
 <script>
 export default {
-  name: "paragraph",
+  name: "heading",
   props: {
     text: {
       type: String,
-      default: "Empty paragraph"
+      default: "Empty heading"
     }
   }
 };

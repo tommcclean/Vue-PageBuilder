@@ -26,7 +26,7 @@ export default {
 
 <style>
 section{
-    border: 1px solid black;
+    border-bottom: 1px solid black;
     min-height: 100px;
 }
 </style>

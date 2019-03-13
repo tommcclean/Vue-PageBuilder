@@ -6,7 +6,6 @@
 
     <div>
       <h1>Editor</h1>
-      <a href="#" v-on:click.prevent="addSection">Add Section</a>
       <a href="#" v-on:click.prevent="toggleEditMode">Toggle Edit Mode</a>
     </div>
   </div>
@@ -15,7 +14,6 @@
 <script>
 import pageData from "@/data/page-data.js";
 import pageSection from "@/components/section";
-import identifierGenerator from "@/services/generate-id.js";
 
 export default {
   components: {
@@ -33,14 +31,6 @@ export default {
     };
   },
   methods: {
-    addSection() {
-      let section = {
-        sectionId: identifierGenerator.generate(),
-        fields: []
-      };
-
-      this.pageData.sections.push(section);
-    },
     toggleEditMode(){
       this.$store.commit("toggleEditMode");
     }
