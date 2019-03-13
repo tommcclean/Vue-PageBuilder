@@ -1,14 +1,19 @@
 <template>
-  <p>{{text}}</p>
+  <p>{{text}} {{isEditMode}}</p>
 </template>
 
 <script>
 export default {
-  name: 'paragraph',
+  name: "paragraph",
   props: {
     text: {
       type: String,
       default: "Empty"
+    }
+  },
+  computed: {
+    isEditMode() {
+      return this.$store.getters.isEditMode;
     }
   }
 };

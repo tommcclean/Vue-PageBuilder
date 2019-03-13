@@ -7,6 +7,7 @@
     <div>
       <h1>Editor</h1>
       <a href="#" v-on:click.prevent="addSection">Add Section</a>
+      <a href="#" v-on:click.prevent="toggleEditMode">Toggle Edit Mode</a>
     </div>
   </div>
 </template>
@@ -39,6 +40,9 @@ export default {
       };
 
       this.pageData.sections.push(section);
+    },
+    toggleEditMode(){
+      this.$store.commit("toggleEditMode");
     }
   }
 };
