@@ -1,6 +1,6 @@
 <template>
   <section :data-section="sectionId">
-    <component-renderer v-for="field in fields" v-bind:key="field.id" :field="field"/>
+    <component-renderer v-for="field in fields" v-bind:key="field.id" :field="field" v-on:component-updated="updated"/>
   </section>
 </template>
 
@@ -19,6 +19,15 @@ export default {
     fields: {
       type: Array,
       required: true
+    }
+  },
+  methods:{
+    updated(field, properties){
+      let updatedField = this._.find(this.fields, function(fld) { return fld.fieldId === field.fieldId; });
+
+      updatedField.properties = properties;
+
+      this.$emit("section-updated", this.sectionId);
     }
   }
 };

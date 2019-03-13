@@ -1,5 +1,5 @@
 <template>
-  <p>{{text}}</p>
+  <p v-on:click.prevent="updateText">{{text}}</p>
 </template>
 
 <script>
@@ -9,6 +9,13 @@ export default {
     text: {
       type: String,
       default: "Empty paragraph"
+    }
+  },
+  methods: {
+    updateText() {
+      this.$emit("component-updated", {
+        text: 'hello'
+      });
     }
   }
 };

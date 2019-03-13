@@ -12,14 +12,14 @@ export default {
                     }
                 }, {
                     fieldType: 'paragraph',
-                    fieldId: 1,
+                    fieldId: 2,
                     properties: {
                         text: 'This is my first paragraph'
                     }
                 },
                 {
                     fieldType: 'paragraph',
-                    fieldId: 2,
+                    fieldId: 3,
                     properties: {
                         text: 'This is my second paragraph'
                     }

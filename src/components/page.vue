@@ -1,7 +1,7 @@
 <template>
   <div :data-page-id="pageData.pageId" :data-page-name="pageData.pageName" class="d-flex">
     <div class="flex-grow-1">
-      <pageSection v-for="section in pageData.sections" v-bind:key="section.id" v-bind="section"/>
+      <pageSection v-for="section in pageData.sections" v-bind:key="section.id" v-bind="section" v-on:section-updated="sectionUpdated"/>
     </div>
 
     <div>
@@ -27,12 +27,17 @@ export default {
   },
   data() {
     return {
-      pageData: pageData.page
+      pageData: pageData.page,
+      updateCount: 0
     };
   },
   methods: {
     toggleEditMode(){
       this.$store.commit("toggleEditMode");
+    },
+    sectionUpdated: function(){
+      this.updateCount += 1;
+      window.console.log(this.updateCount);
     }
   }
 };
