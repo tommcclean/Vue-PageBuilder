@@ -1,8 +1,10 @@
 <template>
-  <p v-on:click.prevent="updateText">{{text}}</p>
+  <p contenteditable="true" @input="updateComponent">{{text}}</p>
 </template>
 
 <script>
+const debounce = require("lodash/debounce");
+
 export default {
   name: "paragraph",
   props: {
@@ -12,11 +14,17 @@ export default {
     }
   },
   methods: {
-    updateText() {
+    updateComponent: debounce(function(event) {
       this.$emit("component-updated", {
-        text: 'hello'
+        text: event.target.innerText
       });
-    }
+    }, 2000)
   }
 };
 </script>
+
+<style scoped>
+p {
+  outline: 0;
+}
+</style>
