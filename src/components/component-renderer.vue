@@ -18,7 +18,6 @@ export default {
   },
   methods:{
     updated(properties){
-      window.console.log(properties); 
       this.$emit("component-updated", this.field, properties);
     }
   }

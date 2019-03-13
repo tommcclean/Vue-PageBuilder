@@ -27,6 +27,8 @@ export default {
 
       updatedField.properties = properties;
 
+      window.console.log(this.fields);
+      
       this.$emit("section-updated", this.sectionId);
     }
   }
