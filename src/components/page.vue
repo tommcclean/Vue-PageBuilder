@@ -1,12 +1,21 @@
 <template>
-  <div :data-page-id="pageData.pageId" :data-page-name="pageData.pageName" class="d-flex">
+  <div
+    :data-page-id="pageProperties.page.pageId"
+    :data-page-name="pageProperties.page.pageName"
+    class="d-flex"
+  >
     <div class="flex-grow-1">
-      <pageSection v-for="section in pageData.sections" v-bind:key="section.id" v-bind="section" v-on:section-updated="sectionUpdated"/>
+      <pageSection
+        v-for="section in pageProperties.page.sections"
+        v-bind:key="section.id"
+        v-bind="section"
+      />
     </div>
 
     <div>
       <h1>Editor</h1>
       <a href="#" v-on:click.prevent="toggleEditMode">Toggle Edit Mode</a>
+      <a href="#" v-on:click.prevent="logJson">Log JSON</a>
     </div>
   </div>
 </template>
@@ -25,19 +34,22 @@ export default {
       required: true
     }
   },
-  data() {
-    return {
-      pageData: pageData.page,
-      updateCount: 0
-    };
+  computed: {
+    pageProperties() {
+      return this.$store.getters.getPageProperties;
+    }
+  },
+  created() {
+    this.$store.commit("setPageProperties", pageData);
+    window.console.log(this.pageProperties);
   },
   methods: {
-    toggleEditMode(){
+    toggleEditMode() {
       this.$store.commit("toggleEditMode");
     },
-    sectionUpdated: function(){
-      this.updateCount += 1;
-      window.console.log(this.updateCount);
+    logJson() {
+      window.console.clear();
+      window.console.log(this.pageProperties);
     }
   }
 };

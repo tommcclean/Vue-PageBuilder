@@ -26,10 +26,6 @@ export default {
       let updatedField = this._.find(this.fields, function(fld) { return fld.fieldId === field.fieldId; });
 
       updatedField.properties = properties;
-
-      window.console.log(this.fields);
-      
-      this.$emit("section-updated", this.sectionId);
     }
   }
 };
