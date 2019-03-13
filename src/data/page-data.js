@@ -4,23 +4,22 @@ export default {
         pageName: 'My first page',
         sections: [{
                 sectionId: 0,
-                sectionName: 'My first section',
                 fields: [{
-                        fieldType: 'paragraph-render',
+                        fieldType: 'paragraph',
                         fieldId: 1,
                         properties: {
                             text: 'This is my first paragraph'
                         }
                     },
                     {
-                        fieldType: 'paragraph-render',
+                        fieldType: 'paragraph',
                         fieldId: 2,
                         properties: {
                             text: 'This is my second paragraph'
                         },
                     },
                     {
-                        fieldType: 'pictureRender',
+                        fieldType: 'square-image',
                         fieldId: 3,
                         properties: {
                             imageSource: '/assets/sample.jpg',
@@ -30,7 +29,7 @@ export default {
                         },
                     },
                     {
-                        fieldType: 'alert-render',
+                        fieldType: 'alert',
                         fieldId: 4,
                         properties: {
                             text: 'This is an error message',
@@ -41,14 +40,44 @@ export default {
             },
             {
                 sectionId: 2,
-                sectionName: 'Another section',
                 fields: [{
-                    fieldType: 'paragraph-render',
-                    fieldId: 1,
-                    properties: {
-                        text: 'This is my first paragraph'
+                        fieldType: 'paragraph',
+                        fieldId: 1,
+                        properties: {
+                            text: 'This is my first paragraph'
+                        }
+                    },
+                    {
+                        fieldType: 'bucket',
+                        fieldId: 2,
+                        properties: {
+                            fields: [{
+                                fieldType: 'paragraph',
+                                fieldId: 1,
+                                properties: {
+                                    text: 'This is my first paragraph'
+                                }
+                            },
+                            {
+                                fieldType: 'square-image',
+                                fieldId: 3,
+                                properties: {
+                                    imageSource: '/assets/sample.jpg',
+                                    alternateText: 'My sample picture',
+                                    width: 200,
+                                    height: 200
+                                },
+                            },
+                            {
+                                fieldType: 'paragraph',
+                                fieldId: 1,
+                                properties: {
+                                    text: 'This is my first paragraph'
+                                }
+                            }]
+                        }
                     }
-                }]
+                ]
             }
         ]
     }

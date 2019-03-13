@@ -4,6 +4,7 @@
 
 <script>
 export default {
+  name: 'paragraph',
   props: {
     text: {
       type: String,

@@ -35,7 +35,6 @@ export default {
     addSection() {
       let section = {
         sectionId: identifierGenerator.generate(),
-        sectionName: "another section",
         fields: []
       };
 

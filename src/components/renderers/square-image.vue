@@ -1,9 +1,10 @@
 <template>
-  <img class="picture-render" :src="imageSource" :alt="alternateText" :width="width" :height="height"/>
+  <img :src="imageSource" :alt="alternateText" :width="width" :height="height"/>
 </template>
 
 <script>
 export default {
+  name: 'square-image',
   props: {
     imageSource: {
       type: String,
@@ -26,7 +27,7 @@ export default {
 </script>
 
 <style>
-  img.picture-render{
+  img[data-field-type="square-image"]{
     object-fit: cover;
   }
 </style>

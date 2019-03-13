@@ -1,5 +1,5 @@
 <template>
-  <section :data-section="sectionId" :data-section-name="sectionName">
+  <section :data-section="sectionId">
     <component-renderer v-for="field in fields" v-bind:key="field.id" :field="field"/>
   </section>
 </template>
@@ -14,10 +14,6 @@ export default {
   props: {
     sectionId: {
       type: Number,
-      required: true
-    },
-    sectionName: {
-      type: String,
       required: true
     },
     fields: {
