@@ -1,15 +1,22 @@
 <template>
-  <component v-bind:is="field.type" v-bind="field.properties"/>
+  <component
+    v-bind:is="field.fieldType"
+    v-bind="field.properties"
+    :data-field-id="field.fieldId"
+    :data-field-type="field.fieldType"
+  />
 </template>
 
 <script>
-import paragraph from "@/components/paragraph";
-import pictureRender from "@/components/picture-render";
+import paragraphRender from "@/components/renderers/paragraph-render";
+import pictureRender from "@/components/renderers/picture-render";
+import alertRender from "@/components/renderers/alert-render";
 
 export default {
   components: {
-    paragraph,
-    pictureRender
+    paragraphRender,
+    pictureRender,
+    alertRender
   },
   props: {
     field: {
