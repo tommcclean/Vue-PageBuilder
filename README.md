@@ -1,0 +1,2 @@
+#Vue-PageBuilder
+1. This repository is a proof of concept to see how Vue can be leveraged to create a page builder technology which supports such features as drag and drop component addition / removal and modification.
