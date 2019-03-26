@@ -4,6 +4,10 @@
     :data-page-name="pageProperties.page.pageName"
     class="d-flex"
   >
+    <div>
+      <textarea class="property-editor" v-model="editMe"/>
+    </div>
+
     <div class="flex-grow-1">
       <pageSection
         v-for="section in pageProperties.page.sections"
@@ -37,11 +41,19 @@ export default {
   computed: {
     pageProperties() {
       return this.$store.getters.getPageProperties;
+    },
+    editMe: {
+      get() {
+        var json = this.$store.getters.getPageProperties;
+        return JSON.stringify(json, null, 2);
+      },
+      set(value) {
+        this.$store.dispatch("setPageProperties", JSON.parse(value));
+      }
     }
   },
   created() {
     this.$store.commit("setPageProperties", pageData);
-    window.console.log(this.pageProperties);
   },
   methods: {
     toggleEditMode() {
@@ -49,8 +61,14 @@ export default {
     },
     logJson() {
       window.console.clear();
-      window.console.log(this.pageProperties);
     }
   }
 };
 </script>
+
+<style>
+textarea.property-editor {
+  width: 400px;
+  height: 100vh;
+}
+</style>
