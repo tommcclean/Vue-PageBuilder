@@ -8,18 +8,15 @@
       <textarea class="property-editor" v-model="editMe"/>
     </div>
 
-    <div class="flex-grow-1">
-      <pageSection
-        v-for="section in pageProperties.page.sections"
-        v-bind:key="section.id"
-        v-bind="section"
-      />
-    </div>
-
-    <div>
-      <h1>Editor</h1>
-      <a href="#" v-on:click.prevent="toggleEditMode">Toggle Edit Mode</a>
-      <a href="#" v-on:click.prevent="logJson">Log JSON</a>
+    <div class="flex-grow-1 p-5" style="background-color: gray;">
+      <div class="card">
+        <div class="card-header" v-text="pageProperties.page.pageName"/>
+        <pageSection
+          v-for="section in pageProperties.page.sections"
+          v-bind:key="section.id"
+          v-bind="section"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -27,6 +24,8 @@
 <script>
 import pageData from "@/data/page-data.js";
 import pageSection from "@/components/section";
+
+const debounce = require("lodash/debounce");
 
 export default {
   components: {
@@ -48,7 +47,7 @@ export default {
         return JSON.stringify(json, null, 2);
       },
       set(value) {
-        this.$store.dispatch("setPageProperties", JSON.parse(value));
+        this.updateProperties(value);
       }
     }
   },
@@ -56,12 +55,9 @@ export default {
     this.$store.commit("setPageProperties", pageData);
   },
   methods: {
-    toggleEditMode() {
-      this.$store.commit("toggleEditMode");
-    },
-    logJson() {
-      window.console.clear();
-    }
+    updateProperties: debounce(function(value) {
+      this.$store.dispatch("setPageProperties", JSON.parse(value));
+    }, 2000)
   }
 };
 </script>
